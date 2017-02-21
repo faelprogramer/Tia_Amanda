@@ -1,6 +1,5 @@
 package br.com.tiaAmanda.controle;
 
-import br.com.tiaAmanda.modelo.gui.DecoratedDesktopPane;
 import br.com.tiaAmanda.visao.frame.JFramePrincipal;
 import br.com.tiaAmanda.visao.internalFrame.cadastro.JIFrameCadastroPessoaFisica;
 import br.com.tiaAmanda.visao.internalFrame.cadastro.JIFrameCadastroProduto;
@@ -51,7 +50,7 @@ public class JFramePrincipalControl {
             int x = framePrincipal.getDecoratedDesktopPane().getWidth();
             int y = framePrincipal.getDecoratedDesktopPane().getHeight();
             saidaVenda.setLocation((x-saidaVenda.getWidth())/2, (y - saidaVenda.getHeight())/2);
-            //saidaVenda.setSize(saidaVenda.getWidth(), framePrincipal.getDecoratedDesktopPane().getHeight());
+            saidaVenda.setSize(saidaVenda.getWidth(), framePrincipal.getDecoratedDesktopPane().getHeight());
         }
         return saidaVenda;
     }
