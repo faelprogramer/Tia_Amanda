@@ -322,11 +322,11 @@ public class JIFrameSaidaVendaControl extends Control implements ActionListener,
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (e.getSource() == frame.getjTextField_dsCliente() && frame.getjTextField_dsCliente().isEnabled()) {
+        if (e.getSource() == frame.getjTextField_dsCliente() && e.getClickCount() == 2 && frame.getjTextField_dsCliente().isEnabled()) {
             jDialogEscolhaCliente = new JDialogEscolhaCliente(null, true, frame, this);
             jDialogEscolhaCliente.setVisible(true);
         }
-        if (e.getSource() == frame.getjTextField_ds_produto() && frame.getjTextField_ds_produto().isEnabled()) {
+        if (e.getSource() == frame.getjTextField_ds_produto() && e.getClickCount() == 2 && frame.getjTextField_ds_produto().isEnabled()) {
             jDialogEscolhaProduto = new JDialogEscolhaProduto(null, true, frame, this);
             jDialogEscolhaProduto.setVisible(true);
         }

@@ -47,10 +47,10 @@ public class JFramePrincipalControl {
     private JInternalFrameSaidaVenda getSaidaVenda() {
         if (saidaVenda == null) {
             saidaVenda = new JInternalFrameSaidaVenda();
+            saidaVenda.setSize(saidaVenda.getWidth(), framePrincipal.getDecoratedDesktopPane().getHeight());
             int x = framePrincipal.getDecoratedDesktopPane().getWidth();
             int y = framePrincipal.getDecoratedDesktopPane().getHeight();
             saidaVenda.setLocation((x-saidaVenda.getWidth())/2, (y - saidaVenda.getHeight())/2);
-            saidaVenda.setSize(saidaVenda.getWidth(), framePrincipal.getDecoratedDesktopPane().getHeight());
         }
         return saidaVenda;
     }
