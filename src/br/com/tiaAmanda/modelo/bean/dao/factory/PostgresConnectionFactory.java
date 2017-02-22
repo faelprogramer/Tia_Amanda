@@ -9,7 +9,7 @@ public final class PostgresConnectionFactory extends ConnectionFactory {
     public PostgresConnectionFactory() {
         user = "postgres";
         password = "admin";
-        db = "acai_desenvolvimento";
+        db = "acai";
         host = "10.0.0.10";
         port = "5432";
         driver = "org.postgresql.Driver";
