@@ -1,5 +1,6 @@
 package br.com.tiaAmanda.modelo.bean;
 
+import java.text.DecimalFormat;
 import java.util.Objects;
 
 public class Produto {
@@ -54,6 +55,10 @@ public class Produto {
     public float getVl_avista() {
         return vl_avista;
     }
+    
+    public String getTxtVl_avista() {
+        return new DecimalFormat("#,##0.00").format(vl_avista);
+    }
 
     public void setVl_avista(float vl_avista) {
         this.vl_avista = vl_avista;
@@ -61,6 +66,10 @@ public class Produto {
 
     public float getVl_aprazo() {
         return vl_aprazo;
+    }
+    
+    public String getTxtVl_aprazo() {
+        return new DecimalFormat("#,##0.00").format(vl_aprazo);
     }
 
     public void setVl_aprazo(float vl_aprazo) {

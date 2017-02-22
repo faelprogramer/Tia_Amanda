@@ -1,6 +1,7 @@
 package br.com.tiaAmanda.visao.internalFrame.saida;
 
 import br.com.tiaAmanda.controle.JIFrameSaidaVendaControl;
+import br.com.tiaAmanda.modelo.gui.JNumberFormatField;
 import br.com.tiaAmanda.visao.internalFrame.cadastro.JInternalFramePattern;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -15,6 +16,7 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
     
     public JInternalFrameSaidaVenda() {
         initComponents();
+        setTitle("Cadastro de pessoa física");
         desabilitarComponentes();
         adicionarCursorComponentes();
         jScrollPane_vendas.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -50,10 +52,14 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
         jTextField_dsCliente = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jFormattedTextField_data = new javax.swing.JFormattedTextField();
+        jFormattedTextField_data = new javax.swing.JFormattedTextField(getMascaraData());
         jComboBox_formaPagamento = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jTextField_valor = new javax.swing.JTextField();
+        jTextField_valor = new JNumberFormatField(2,6);
+        jPanel5 = new javax.swing.JPanel();
+        jTextField_pesquisa = new javax.swing.JTextField();
+        jButton_pesquisar = new javax.swing.JButton();
+        jComboBox_pesquisa = new javax.swing.JComboBox<>();
 
         jToolBar_botoes.setRollover(true);
 
@@ -119,8 +125,7 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane_vendas, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane_vendas, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE))
         );
 
         jLabel5.setText("Nr Venda");
@@ -196,7 +201,7 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox_formaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -214,7 +219,7 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField_nr_venda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -223,16 +228,50 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton_pesquisar.setText("Pesquisar");
+
+        jComboBox_pesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pesquisar por nome" }));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jComboBox_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton_pesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_pesquisar)
+                    .addComponent(jComboBox_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel_principalLayout = new javax.swing.GroupLayout(jPanel_principal);
         jPanel_principal.setLayout(jPanel_principalLayout);
         jPanel_principalLayout.setHorizontalGroup(
             jPanel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_principalLayout.createSequentialGroup()
-                .addGroup(jPanel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_principalLayout.createSequentialGroup()
+                        .addGroup(jPanel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel_principalLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel_principalLayout.setVerticalGroup(
             jPanel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,7 +279,9 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -255,19 +296,20 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_desfazer;
     private javax.swing.JButton jButton_excluir;
     private javax.swing.JButton jButton_novo;
+    private javax.swing.JButton jButton_pesquisar;
     private javax.swing.JButton jButton_salvar;
     private javax.swing.JComboBox<String> jComboBox_formaPagamento;
+    private javax.swing.JComboBox<String> jComboBox_pesquisa;
     private javax.swing.JFormattedTextField jFormattedTextField_data;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -279,6 +321,7 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel_principal;
     private javax.swing.JScrollPane jScrollPane_vendas;
     private javax.swing.JTable jTable_vendas;
@@ -286,6 +329,7 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
     private javax.swing.JTextField jTextField_dsCliente;
     private javax.swing.JTextField jTextField_ds_produto;
     private javax.swing.JTextField jTextField_nr_venda;
+    private javax.swing.JTextField jTextField_pesquisa;
     private javax.swing.JTextField jTextField_valor;
     private javax.swing.JToolBar jToolBar_botoes;
     private javax.swing.JLabel jlbl_cdBarras;
@@ -342,6 +386,18 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
     public JTextField getjTextField_valor() {
         return jTextField_valor;
     }
+    
+    public JButton getjButton_pesquisar() {
+        return jButton_pesquisar;
+    }
+
+    public JComboBox<String> getjComboBox_pesquisa() {
+        return jComboBox_pesquisa;
+    }
+
+    public JTextField getjTextField_pesquisa() {
+        return jTextField_pesquisa;
+    }
 
     private void desabilitarComponentes() {
         jTextField_dsCliente.setEditable(false);
@@ -364,9 +420,11 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
         jButton_salvar.setCursor(handCursor);
         jButton_desfazer.setCursor(handCursor);
         jButton_excluir.setCursor(handCursor);
+        jButton_pesquisar.setCursor(handCursor);
         jTextField_dsCliente.setCursor(handCursor);
         jTextField_ds_produto.setCursor(handCursor);
         jComboBox_formaPagamento.setCursor(handCursor);
+        jComboBox_pesquisa.setCursor(handCursor);
         jScrollPane_vendas.setCursor(handCursor);
     }
 
@@ -379,5 +437,5 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
         jTable_vendas.getColumnModel().getColumn(i++).setPreferredWidth(120);
         jTable_vendas.getColumnModel().getColumn(i++).setPreferredWidth(52);
     }
-    
+
 }

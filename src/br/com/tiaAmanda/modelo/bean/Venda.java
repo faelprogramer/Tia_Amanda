@@ -1,5 +1,6 @@
 package br.com.tiaAmanda.modelo.bean;
 
+import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.Objects;
 
@@ -61,6 +62,10 @@ public class Venda {
 
     public float getVl_venda() {
         return vl_venda;
+    }
+    
+    public String getTxtVl_venda() {
+        return new DecimalFormat("#,##0.00").format(vl_venda);
     }
 
     public void setVl_venda(float vl_venda) {

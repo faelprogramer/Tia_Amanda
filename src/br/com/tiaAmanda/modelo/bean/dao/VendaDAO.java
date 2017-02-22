@@ -155,6 +155,27 @@ public final class VendaDAO extends DAO<Venda> {
         }
         return vendas;
     }
+    
+    public List<Venda> getVendasPorNomeCliente(Connection conn, String nome) throws SQLException {
+        sql = "select nr_sequencia,cd_produto,cd_pessoa_fisica,dt_venda,"
+                + "cd_forma_pagamento,vl_venda from venda v where "
+                + "(select upper(nm_pessoa_fisica) from pessoa_fisica p where "
+                + "p.cd_pessoa_fisica = v.cd_pessoa_fisica) like '%" + nome.toUpperCase() + "%' "
+                + "order by dt_venda desc";
+        List<Venda> vendas = new ArrayList<>();
+        try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                vendas.add(InstantObjectFromResultSet(conn));
+            }
+        } catch (SQLException ex) {
+            throw ex;
+        } finally {
+            closeAll();
+        }
+        return vendas;
+    }
 
     private Venda InstantObjectFromResultSet(Connection conn) throws SQLException {
         Venda v = new Venda();

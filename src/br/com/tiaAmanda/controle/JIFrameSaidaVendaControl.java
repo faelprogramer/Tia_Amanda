@@ -25,6 +25,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -78,6 +79,7 @@ public class JIFrameSaidaVendaControl extends Control implements ActionListener,
         frame.getjComboBox_formaPagamento().addItemListener(this);
         frame.addInternalFrameListener(this);
         lsm.addListSelectionListener(this);
+        frame.getjButton_pesquisar().addActionListener(this);
     }
 
     public void btnNovoAction() {
@@ -139,6 +141,25 @@ public class JIFrameSaidaVendaControl extends Control implements ActionListener,
         frame.getjTable_vendas().clearSelection();
         habilitarComponentesExcluir();
     }
+    
+    private void btnPesquisarAction() {
+        try {
+            if (frame.getjTable_vendas().getRowCount() > 0) {
+                tmVenda.limpar();
+            }
+            beginTransaction();
+            vendas = dao.getVendasPorNomeCliente(connection, frame.getjTextField_pesquisa().getText());
+            endTransaction();
+            if (!vendas.isEmpty()) {
+                tmVenda.addListaDeVendas(vendas);
+            } else {
+                System.err.println("Sem cadastros de vendas");
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(frame, ex.getMessage(),
+                    "Erro ao listar vendas", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     private void listarAllVendas() {
         try {
@@ -175,7 +196,7 @@ public class JIFrameSaidaVendaControl extends Control implements ActionListener,
         v.setDt_venda(StringToDate(frame.getjFormattedTextField_data().getText()));
         formaPagamento = getFormaPagamentoSelecionada();
         v.setFormaPagamento(formaPagamento);
-        v.setVl_venda(Float.valueOf(frame.getjTextField_valor().getText()));
+        v.setVl_venda(new DecimalFormat("####,##").parse(frame.getjTextField_valor().getText()).floatValue());
         return v;
     }
 
@@ -245,7 +266,7 @@ public class JIFrameSaidaVendaControl extends Control implements ActionListener,
             frame.getjTextField_dsCliente().setText(cliente.getNm_pessoa_fisica());
             frame.getjFormattedTextField_data().setText(DateToString(v.getDt_venda()));
             frame.getjComboBox_formaPagamento().setSelectedItem(formaPagamento);
-            frame.getjTextField_valor().setText(String.valueOf(v.getVl_venda()));
+            frame.getjTextField_valor().setText(v.getTxtVl_venda());
         }
     }
 
@@ -263,6 +284,9 @@ public class JIFrameSaidaVendaControl extends Control implements ActionListener,
         }
         if (o == frame.getjButton_excluir()) {
             btnExcluirAction();
+        }
+        if (o == frame.getjButton_pesquisar()) {
+            btnPesquisarAction();
         }
     }
 
@@ -301,7 +325,7 @@ public class JIFrameSaidaVendaControl extends Control implements ActionListener,
             if (p != null) {
                 produto = p;
                 frame.getjTextField_ds_produto().setText(produto.getDs_produto());
-                frame.getjTextField_valor().setText(String.valueOf(p.getVl_avista()));
+                frame.getjTextField_valor().setText(p.getTxtVl_avista());
             } else {
                 p = null;
                 frame.getjTextField_ds_produto().setText("");
@@ -406,15 +430,19 @@ public class JIFrameSaidaVendaControl extends Control implements ActionListener,
             throw new CamposObrigatoriosNaoPreenchidosException();
         }
         if (produto == null || frame.getjTextField_cd_barras().getText().trim().isEmpty() || frame.getjTextField_ds_produto().getText().trim().isEmpty()) {
+            throw new CamposObrigatoriosNaoPreenchidosException();
         }
         if (cliente == null || frame.getjTextField_dsCliente().getText().trim().isEmpty()) {
+            throw new CamposObrigatoriosNaoPreenchidosException();
         }
         if (formaPagamento == null || frame.getjComboBox_formaPagamento().getSelectedIndex() < 0) {
-            throw new CamposObrigatoriosNaoPreenchidosException(String.valueOf(frame.getjComboBox_formaPagamento().getSelectedIndex()));
+            throw new CamposObrigatoriosNaoPreenchidosException();
         }
         if (frame.getjFormattedTextField_data().getText().trim().isEmpty()) {
+            throw new CamposObrigatoriosNaoPreenchidosException();
         }
-        if (frame.getjTextField_valor().getText().trim().isEmpty()) {
+        if (frame.getjTextField_valor().getText().trim().equals(",")) {
+            throw new CamposObrigatoriosNaoPreenchidosException();
         }
     }
 
@@ -450,6 +478,7 @@ public class JIFrameSaidaVendaControl extends Control implements ActionListener,
     public void internalFrameActivated(InternalFrameEvent e) {
         listarAllVendas();
         listFormasPagamento();
+        frame.getjTextField_pesquisa().requestFocus();
     }
 
     @Override

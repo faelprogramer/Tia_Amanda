@@ -64,7 +64,7 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField_cdPessoaFisica = new javax.swing.JTextField();
-        jFormattedTextField_dsTelefone = new javax.swing.JFormattedTextField();
+        jFormattedTextField_dsTelefone = new javax.swing.JFormattedTextField(getMascaraTelefone());
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jTextField_qtdItensCartaoFidelidade = new javax.swing.JTextField();
@@ -267,6 +267,7 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
     }// </editor-fold>//GEN-END:initComponents
     //</editor-fold>
 
+    
     //<editor-fold defaultstate="collapsed" desc="Variáveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_desfazer;
@@ -372,5 +373,5 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
         jTable_pessoas.getColumnModel().getColumn(i++).setPreferredWidth(200);
         jTable_pessoas.getColumnModel().getColumn(i++).setPreferredWidth(500);
     }
-
+    
 }
