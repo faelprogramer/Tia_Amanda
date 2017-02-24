@@ -16,7 +16,7 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
     
     public JInternalFrameSaidaVenda() {
         initComponents();
-        setTitle("Cadastro de pessoa física");
+        setTitle("Vendas");
         desabilitarComponentes();
         adicionarCursorComponentes();
         jScrollPane_vendas.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
