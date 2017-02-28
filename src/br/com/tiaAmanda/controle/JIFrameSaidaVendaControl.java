@@ -76,6 +76,7 @@ public class JIFrameSaidaVendaControl extends Control implements ActionListener,
         frame.getjTextField_ds_produto().addMouseListener(this);
         frame.getjTextField_nr_venda().addKeyListener(this);
         frame.getjTextField_valor().addKeyListener(this);
+        frame.getjFormattedTextField_data().addKeyListener(this);
         frame.getjComboBox_formaPagamento().addItemListener(this);
         frame.addInternalFrameListener(this);
         lsm.addListSelectionListener(this);
