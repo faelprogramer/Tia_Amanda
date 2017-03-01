@@ -3,7 +3,7 @@ package br.com.tiaAmanda.modelo.bean;
 import java.util.Objects;
 
 public class PessoaFisica {
-    
+
     private Integer cd_pessoa_fisica;
     private String nm_pessoa_fisica;
     private String ds_telefone;
@@ -17,7 +17,7 @@ public class PessoaFisica {
     public PessoaFisica(Integer cd_pessoa_fisica) {
         this.cd_pessoa_fisica = cd_pessoa_fisica;
     }
-    
+
     public PessoaFisica() {
     }
 
@@ -47,8 +47,12 @@ public class PessoaFisica {
     }
 
     private String removerMascaraTelefone(String ds_telefone1) {
-        ds_telefone1 = ds_telefone1.replace("(", "").replace(")", "").replace("-", "").replace(" ", "");
-        return ds_telefone;
+        if (ds_telefone1 != null) {
+            ds_telefone1 = ds_telefone1.replace("(", "").replace(")", "").replace("-", "").replace(" ", "");
+            return ds_telefone;
+        } else {
+            return null;
+        }
     }
 
     public int getNr_compra_fidelidade() {
@@ -122,5 +126,5 @@ public class PessoaFisica {
     public String toString() {
         return "PessoaFisica{" + "cd_pessoa=" + cd_pessoa_fisica + ", nm_pessoa_fisica=" + nm_pessoa_fisica + ", ds_telefone=" + ds_telefone + ", nr_compra_fidelidade=" + nr_compra_fidelidade + ", ds_endereco=" + ds_endereco + ", nr_endereco=" + nr_endereco + ", ds_complemento=" + ds_complemento + ", ds_bairro=" + ds_bairro + ", ds_observacao=" + ds_observacao + '}';
     }
-    
+
 }
