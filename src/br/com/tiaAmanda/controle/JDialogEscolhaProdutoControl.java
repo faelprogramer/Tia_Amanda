@@ -3,7 +3,7 @@ package br.com.tiaAmanda.controle;
 import br.com.tiaAmanda.modelo.bean.Produto;
 import br.com.tiaAmanda.modelo.bean.dao.ProdutoDAO;
 import br.com.tiaAmanda.modelo.bean.dao.factory.PostgresConnectionFactory;
-import br.com.tiaAmanda.modelo.bean.exception.CamposObrigatoriosNaoPreenchidosException;
+import br.com.tiaAmanda.modelo.exception.CamposObrigatoriosNaoPreenchidosException;
 import br.com.tiaAmanda.modelo.tableModels.TableModelProduto;
 import br.com.tiaAmanda.visao.dialog.JDialogEscolhaProduto;
 import java.awt.event.ActionEvent;

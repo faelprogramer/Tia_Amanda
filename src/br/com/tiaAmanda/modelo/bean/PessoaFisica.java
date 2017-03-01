@@ -42,7 +42,13 @@ public class PessoaFisica {
     }
 
     public void setDs_telefone(String ds_telefone) {
+        ds_telefone = removerMascaraTelefone(ds_telefone);
         this.ds_telefone = ds_telefone;
+    }
+
+    private String removerMascaraTelefone(String ds_telefone1) {
+        ds_telefone1 = ds_telefone1.replace("(", "").replace(")", "").replace("-", "").replace(" ", "");
+        return ds_telefone;
     }
 
     public int getNr_compra_fidelidade() {

@@ -2,7 +2,7 @@ package br.com.tiaAmanda.controle;
 
 import br.com.tiaAmanda.modelo.bean.dao.factory.ConnectionFactory;
 import br.com.tiaAmanda.modelo.bean.dao.factory.PostgresConnectionFactory;
-import br.com.tiaAmanda.modelo.bean.exception.CamposObrigatoriosNaoPreenchidosException;
+import br.com.tiaAmanda.modelo.exception.CamposObrigatoriosNaoPreenchidosException;
 import java.awt.Component;
 import java.sql.Connection;
 import java.sql.SQLException;

@@ -4,7 +4,7 @@ import br.com.tiaAmanda.modelo.bean.PessoaFisica;
 import br.com.tiaAmanda.modelo.tableModels.TableModelPessoaFisica;
 import br.com.tiaAmanda.modelo.bean.dao.PessoaFisicaDAO;
 import br.com.tiaAmanda.modelo.bean.dao.factory.PostgresConnectionFactory;
-import br.com.tiaAmanda.modelo.bean.exception.CamposObrigatoriosNaoPreenchidosException;
+import br.com.tiaAmanda.modelo.exception.CamposObrigatoriosNaoPreenchidosException;
 import br.com.tiaAmanda.visao.internalFrame.cadastro.JIFrameCadastroPessoaFisica;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

@@ -10,7 +10,7 @@ import br.com.tiaAmanda.modelo.bean.dao.FormaPagamentoDAO;
 import br.com.tiaAmanda.modelo.bean.dao.ProdutoDAO;
 import br.com.tiaAmanda.modelo.bean.dao.VendaDAO;
 import br.com.tiaAmanda.modelo.bean.dao.factory.PostgresConnectionFactory;
-import br.com.tiaAmanda.modelo.bean.exception.CamposObrigatoriosNaoPreenchidosException;
+import br.com.tiaAmanda.modelo.exception.CamposObrigatoriosNaoPreenchidosException;
 import br.com.tiaAmanda.modelo.tableModels.TableModelVenda;
 import br.com.tiaAmanda.visao.dialog.JDialogEscolhaCliente;
 import br.com.tiaAmanda.visao.dialog.JDialogEscolhaProduto;
