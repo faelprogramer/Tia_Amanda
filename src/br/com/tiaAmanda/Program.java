@@ -14,7 +14,8 @@ public class Program implements Runnable {
 
     @Override
     public void run() {
-        setLookAndFeelSystem();
+        //setLookAndFeelSystem();
+        //com.alee.laf.WebLookAndFeel.install();
         framePrincipal = new JFramePrincipal();
         framePrincipal.setVisible(true);
     }
