@@ -14,7 +14,7 @@ public class Program implements Runnable {
 
     @Override
     public void run() {
-        //setLookAndFeelSystem();
+        setLookAndFeelSystem();
         //com.alee.laf.WebLookAndFeel.install();
         framePrincipal = new JFramePrincipal();
         framePrincipal.setVisible(true);
@@ -95,6 +95,7 @@ public class Program implements Runnable {
     private void setLookAndFeelSystem() {
         if (System.getProperty("os.name").equals("Mac OS X")) {
             setQuaquaLookAndFeel();
+            //setSeaglasslookandfeel();
         } else {
             setSeaglasslookandfeel();
         }
