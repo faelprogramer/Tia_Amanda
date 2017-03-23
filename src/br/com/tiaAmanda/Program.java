@@ -94,6 +94,7 @@ public class Program implements Runnable {
     
     private void setLookAndFeelSystem() {
         if (System.getProperty("os.name").equals("Mac OS X")) {
+            System.setProperty("apple.laf.useScreenMenuBar", "true");
             setQuaquaLookAndFeel();
             //setSeaglasslookandfeel();
         } else {
@@ -107,6 +108,7 @@ public class Program implements Runnable {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             ex.printStackTrace();
         }
+        
     }
     
     private void setQuaquaLookAndFeel() {
@@ -117,7 +119,7 @@ public class Program implements Runnable {
             System.setProperty("apple.awt.brushMetalLook", "true");
             UIManager.setLookAndFeel("ch.randelshofer.quaqua.snow_leopard.Quaqua16SnowLeopardLookAndFeel");
             //UIManager.setLookAndFeel(ch.randelshofer.quaqua.QuaquaManager.getLookAndFeel());
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         
