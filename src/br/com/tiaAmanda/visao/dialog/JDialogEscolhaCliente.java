@@ -24,10 +24,23 @@ public class JDialogEscolhaCliente extends JDialog {
         jScrollPane_clientes.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         jTable_clientes.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         jTable_clientes.getTableHeader().setReorderingAllowed(false);
-        
         control = new JDialogEscolhaClienteControl(this, iIFrameSaidaVendaControl);
+        setTamanhoColunas();
     }
 
+    private void setTamanhoColunas() {
+        int i = 0;
+        getjTable_clientes().getColumnModel().getColumn(i++).setPreferredWidth(50);
+        getjTable_clientes().getColumnModel().getColumn(i++).setPreferredWidth(200);
+        getjTable_clientes().getColumnModel().getColumn(i++).setPreferredWidth(110);
+        getjTable_clientes().getColumnModel().getColumn(i++).setPreferredWidth(70);
+        getjTable_clientes().getColumnModel().getColumn(i++).setPreferredWidth(150);
+        getjTable_clientes().getColumnModel().getColumn(i++).setPreferredWidth(70);
+        getjTable_clientes().getColumnModel().getColumn(i++).setPreferredWidth(200);
+        getjTable_clientes().getColumnModel().getColumn(i++).setPreferredWidth(200);
+        getjTable_clientes().getColumnModel().getColumn(i++).setPreferredWidth(500);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -151,6 +164,5 @@ public class JDialogEscolhaCliente extends JDialog {
     public JTextField getjTextField_pesquisa() {
         return jTextField_pesquisa;
     }
-
     
 }

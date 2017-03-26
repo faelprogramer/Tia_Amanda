@@ -2,6 +2,7 @@ package br.com.tiaAmanda.visao.internalFrame.cadastro;
 
 import br.com.tiaAmanda.controle.JIFrameCadastroPessoaFisicaControl;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -64,7 +65,7 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField_cdPessoaFisica = new javax.swing.JTextField();
-        jFormattedTextField_dsTelefone = new javax.swing.JFormattedTextField(getMascaraTelefone());
+        jFormattedTextField_dsTelefone = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jTextField_qtdItensCartaoFidelidade = new javax.swing.JTextField();
@@ -81,6 +82,10 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane_observacao = new javax.swing.JTextPane();
         jLabel9 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jComboBox_pesquisa = new javax.swing.JComboBox<>();
+        jTextField_pesquisa = new javax.swing.JTextField();
+        jButton_pesquisar = new javax.swing.JButton();
 
         jPanel_botoes.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
 
@@ -88,6 +93,7 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
 
         jButton_novo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/tiaAmanda/modelo/resources/img/jButton/novo-64px.png"))); // NOI18N
         jButton_novo.setText("Novo");
+        jButton_novo.setBorder(null);
         jButton_novo.setFocusable(false);
         jButton_novo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton_novo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -95,6 +101,7 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
 
         jButton_salvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/tiaAmanda/modelo/resources/img/jButton/save-64px.png"))); // NOI18N
         jButton_salvar.setText("Salvar");
+        jButton_salvar.setBorder(null);
         jButton_salvar.setFocusable(false);
         jButton_salvar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton_salvar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -102,6 +109,7 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
 
         jButton_desfazer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/tiaAmanda/modelo/resources/img/jButton/desfazer-64px.png"))); // NOI18N
         jButton_desfazer.setText("Desfazer");
+        jButton_desfazer.setBorder(null);
         jButton_desfazer.setFocusable(false);
         jButton_desfazer.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton_desfazer.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -109,12 +117,15 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
 
         jButton_excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/tiaAmanda/modelo/resources/img/jButton/excluir-64px.png"))); // NOI18N
         jButton_excluir.setText("Excluir");
+        jButton_excluir.setBorder(null);
         jButton_excluir.setFocusable(false);
         jButton_excluir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton_excluir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar_botoes.add(jButton_excluir);
 
         jPanel_botoes.add(jToolBar_botoes);
+
+        jPanel_pessoas.setBorder(javax.swing.BorderFactory.createTitledBorder("Clientes"));
 
         jTable_pessoas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -139,9 +150,11 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
             jPanel_pessoasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_pessoasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane_tbPessoas, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                .addComponent(jScrollPane_tbPessoas, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
 
         jLabel1.setText("CD Pessoa");
 
@@ -239,6 +252,36 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisa"));
+
+        jComboBox_pesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Por nome" }));
+
+        jButton_pesquisar.setText("Pesquisar");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jComboBox_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField_pesquisa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton_pesquisar)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_pesquisar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -248,7 +291,8 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel_botoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel_pessoas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel_pessoas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -259,6 +303,8 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel_pessoas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -267,13 +313,14 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
     }// </editor-fold>//GEN-END:initComponents
     //</editor-fold>
 
-    
     //<editor-fold defaultstate="collapsed" desc="Variáveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_desfazer;
     private javax.swing.JButton jButton_excluir;
     private javax.swing.JButton jButton_novo;
+    private javax.swing.JButton jButton_pesquisar;
     private javax.swing.JButton jButton_salvar;
+    private javax.swing.JComboBox<String> jComboBox_pesquisa;
     private javax.swing.JFormattedTextField jFormattedTextField_dsTelefone;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -285,6 +332,7 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel_botoes;
     private javax.swing.JPanel jPanel_pessoas;
     private javax.swing.JScrollPane jScrollPane1;
@@ -296,6 +344,7 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
     private javax.swing.JTextField jTextField_endereco;
     private javax.swing.JTextField jTextField_nmPessoaFisica;
     private javax.swing.JTextField jTextField_numeroEndereco;
+    private javax.swing.JTextField jTextField_pesquisa;
     private javax.swing.JTextField jTextField_qtdItensCartaoFidelidade;
     private javax.swing.JTextPane jTextPane_observacao;
     private javax.swing.JToolBar jToolBar_botoes;
@@ -358,8 +407,21 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
     public JTextPane getjTextPane_observacao() {
         return jTextPane_observacao;
     }
-    //</editor-fold>
 
+    public JButton getjButton_pesquisar() {
+        return jButton_pesquisar;
+    }
+
+    public JComboBox<String> getjComboBox_pesquisa() {
+        return jComboBox_pesquisa;
+    }
+
+    public JTextField getjTextField_pesquisa() {
+        return jTextField_pesquisa;
+    }
+
+    //</editor-fold>
+    
     private void setTamanhoColunas() {
         //String[] colunas = ((TableModelPessoaFisica)jTable_pessoas.getModel()).getColunas();
         int i = 0;
@@ -373,5 +435,5 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
         jTable_pessoas.getColumnModel().getColumn(i++).setPreferredWidth(200);
         jTable_pessoas.getColumnModel().getColumn(i++).setPreferredWidth(500);
     }
-    
+
 }

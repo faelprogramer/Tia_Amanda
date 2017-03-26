@@ -55,6 +55,7 @@ public class JIFrameCadastroPessoaFisicaControl extends Control implements Actio
         frame.getjTextField_qtdItensCartaoFidelidade().addKeyListener(this);
         lsm.addListSelectionListener(this);
         frame.addInternalFrameListener(this);
+        frame.getjButton_pesquisar().addActionListener(this);
     }
 
     public void btnNovoAction() {
@@ -115,6 +116,25 @@ public class JIFrameCadastroPessoaFisicaControl extends Control implements Actio
         }
         frame.getjTable_pessoas().clearSelection();
         habilitarComponentesExcluir();
+    }
+
+    private void btnPesquisarAction() {
+        try {
+            if (frame.getjTable_pessoas().getRowCount() > 0) {
+                tmPessoaFisica.limpar();
+            }
+            beginTransaction();
+            pessoas = dao.getPessoasPorNome(connection, frame.getjTextField_pesquisa().getText());
+            endTransaction();
+            if (!pessoas.isEmpty()) {
+                tmPessoaFisica.addListaDePessoas(pessoas);
+            } else {
+                System.err.println("Sem cadastros de pessoas");
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(frame, ex.getMessage(),
+                    "Erro ao listar pessoas", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private void listarAll() {
@@ -243,6 +263,9 @@ public class JIFrameCadastroPessoaFisicaControl extends Control implements Actio
         if (o == frame.getjButton_excluir()) {
             btnExcluirAction();
         }
+        if (o == frame.getjButton_pesquisar()) {
+            btnPesquisarAction();
+        }
     }
 
     @Override
@@ -290,28 +313,29 @@ public class JIFrameCadastroPessoaFisicaControl extends Control implements Actio
             throw new CamposObrigatoriosNaoPreenchidosException();
         }
     }
+
     @Override
     public void internalFrameOpened(InternalFrameEvent e) {
     }
 
     @Override
     public void internalFrameClosing(InternalFrameEvent e) {
-        
+
     }
 
     @Override
     public void internalFrameClosed(InternalFrameEvent e) {
-        
+
     }
 
     @Override
     public void internalFrameIconified(InternalFrameEvent e) {
-        
+
     }
 
     @Override
     public void internalFrameDeiconified(InternalFrameEvent e) {
-        
+
     }
 
     @Override
@@ -321,7 +345,7 @@ public class JIFrameCadastroPessoaFisicaControl extends Control implements Actio
 
     @Override
     public void internalFrameDeactivated(InternalFrameEvent e) {
-        
+
     }
-    
+
 }

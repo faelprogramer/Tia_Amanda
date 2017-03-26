@@ -36,7 +36,6 @@ public class JDialogEscolhaClienteControl extends Control implements ActionListe
         dialog.getjTable_clientes().setModel(tmCliente);
         addActions();
         listarAll();
-        setTamanhoColunas();
         this.jIFrameSaidaVendaControl = jIFrameSaidaVendaControl;
     }
 
@@ -153,17 +152,4 @@ public class JDialogEscolhaClienteControl extends Control implements ActionListe
     protected void validarCampos() throws CamposObrigatoriosNaoPreenchidosException {
     }
 
-    private void setTamanhoColunas() {
-        int i = 0;
-        dialog.getjTable_clientes().getColumnModel().getColumn(i++).setPreferredWidth(50);
-        dialog.getjTable_clientes().getColumnModel().getColumn(i++).setPreferredWidth(200);
-        dialog.getjTable_clientes().getColumnModel().getColumn(i++).setPreferredWidth(110);
-        dialog.getjTable_clientes().getColumnModel().getColumn(i++).setPreferredWidth(70);
-        dialog.getjTable_clientes().getColumnModel().getColumn(i++).setPreferredWidth(200);
-        dialog.getjTable_clientes().getColumnModel().getColumn(i++).setPreferredWidth(70);
-        dialog.getjTable_clientes().getColumnModel().getColumn(i++).setPreferredWidth(200);
-        dialog.getjTable_clientes().getColumnModel().getColumn(i++).setPreferredWidth(200);
-        dialog.getjTable_clientes().getColumnModel().getColumn(i++).setPreferredWidth(500);
-    }
-    
 }

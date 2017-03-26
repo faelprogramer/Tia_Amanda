@@ -52,10 +52,10 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
         jTextField_dsCliente = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jFormattedTextField_data = new javax.swing.JFormattedTextField(getMascaraData());
+        jFormattedTextField_data = new javax.swing.JFormattedTextField();
         jComboBox_formaPagamento = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jTextField_valor = new JNumberFormatField(2,6);
+        jTextField_valor = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jTextField_pesquisa = new javax.swing.JTextField();
         jButton_pesquisar = new javax.swing.JButton();
@@ -65,6 +65,7 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
 
         jButton_novo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/tiaAmanda/modelo/resources/img/jButton/novo-64px.png"))); // NOI18N
         jButton_novo.setText("Novo");
+        jButton_novo.setBorder(null);
         jButton_novo.setFocusable(false);
         jButton_novo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton_novo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -72,6 +73,7 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
 
         jButton_salvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/tiaAmanda/modelo/resources/img/jButton/save-64px.png"))); // NOI18N
         jButton_salvar.setText("Salvar");
+        jButton_salvar.setBorder(null);
         jButton_salvar.setFocusable(false);
         jButton_salvar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton_salvar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -79,6 +81,7 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
 
         jButton_desfazer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/tiaAmanda/modelo/resources/img/jButton/desfazer-64px.png"))); // NOI18N
         jButton_desfazer.setText("Desfazer");
+        jButton_desfazer.setBorder(null);
         jButton_desfazer.setFocusable(false);
         jButton_desfazer.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton_desfazer.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -86,6 +89,7 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
 
         jButton_excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/tiaAmanda/modelo/resources/img/jButton/excluir-64px.png"))); // NOI18N
         jButton_excluir.setText("Excluir");
+        jButton_excluir.setBorder(null);
         jButton_excluir.setFocusable(false);
         jButton_excluir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton_excluir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -101,6 +105,8 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar_botoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Vendas"));
 
         jTable_vendas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -125,8 +131,10 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane_vendas, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE))
+                .addComponent(jScrollPane_vendas, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE))
         );
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Venda"));
 
         jLabel5.setText("Nr Venda");
 
@@ -228,9 +236,11 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisa"));
+
         jButton_pesquisar.setText("Pesquisar");
 
-        jComboBox_pesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pesquisar por nome" }));
+        jComboBox_pesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Por nome" }));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -240,10 +250,10 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
                 .addContainerGap()
                 .addComponent(jComboBox_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton_pesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jTextField_pesquisa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton_pesquisar)
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

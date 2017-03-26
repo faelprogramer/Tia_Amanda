@@ -143,6 +143,27 @@ public final class PessoaFisicaDAO extends DAO<PessoaFisica> {
         }
         return pessoas;
     }
+    
+    public List<PessoaFisica> getPessoasPorNome(Connection conn, String nome) throws SQLException {
+        sql = "select cd_pessoa_fisica, nm_pessoa_fisica, ds_telefone, "
+                + "nr_compra_fidelidade, ds_endereco, nr_endereco, "
+                + "ds_complemento, ds_bairro, ds_observacao "
+                + "from pessoa_fisica where upper(nm_pessoa_fisica) like '%"
+                + nome.toUpperCase() + "%' order by nm_pessoa_fisica";
+        List<PessoaFisica> pessoas = new ArrayList<>();
+        try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                pessoas.add(InstantObjectFromResultSet());
+            }
+        } catch (SQLException ex) {
+            throw ex;
+        } finally {
+            closeAll();
+        }
+        return pessoas;
+    }
 
     private PessoaFisica InstantObjectFromResultSet() throws SQLException {
         PessoaFisica p;

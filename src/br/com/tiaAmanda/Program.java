@@ -117,8 +117,8 @@ public class Program implements Runnable {
             System.setProperty("apple.awt.brushMetalLook", "true");
             System.setProperty("Quaqua.selectionStyle", "dark");
             System.setProperty("apple.awt.brushMetalLook", "true");
-            UIManager.setLookAndFeel("ch.randelshofer.quaqua.snow_leopard.Quaqua16SnowLeopardLookAndFeel");
-            //UIManager.setLookAndFeel(ch.randelshofer.quaqua.QuaquaManager.getLookAndFeel());
+            //UIManager.setLookAndFeel("ch.randelshofer.quaqua.snow_leopard.Quaqua16SnowLeopardLookAndFeel");
+            UIManager.setLookAndFeel(ch.randelshofer.quaqua.QuaquaManager.getLookAndFeel());
         } catch (Exception ex) {
             ex.printStackTrace();
         }
