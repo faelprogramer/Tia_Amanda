@@ -228,7 +228,7 @@ public class JIFrameCadastroPessoaFisicaControl extends Control implements Actio
         if (!e.getValueIsAdjusting() && frame.getjTable_pessoas().getSelectedRow() >= 0) {
             instanciarPessoaNaTela();
             habilitarComponentesNovo();
-            frame.getjTextField_nmPessoaFisica().requestFocus();
+            //frame.getjTextField_nmPessoaFisica().requestFocus();
         }
     }
 

@@ -250,7 +250,7 @@ public class JIFrameSaidaVendaControl extends Control implements ActionListener,
                 frame.getjTextField_valor(),
                 frame.getjFormattedTextField_data(),
                 frame.getjComboBox_formaPagamento());
-        frame.getjTextField_cd_barras().requestFocus();
+        //frame.getjTextField_cd_barras().requestFocus();
         habilitarComponentes(false, frame.getjButton_desfazer(), frame.getjButton_salvar());
     }
 
