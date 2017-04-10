@@ -56,6 +56,7 @@ public class JIFrameCadastroPessoaFisicaControl extends Control implements Actio
         lsm.addListSelectionListener(this);
         frame.addInternalFrameListener(this);
         frame.getjButton_pesquisar().addActionListener(this);
+        frame.getjTextField_pesquisa().addKeyListener(this);
     }
 
     public void btnNovoAction() {
@@ -270,12 +271,16 @@ public class JIFrameCadastroPessoaFisicaControl extends Control implements Actio
 
     @Override
     public void keyTyped(KeyEvent e) {
-        habilitarComponentesNovo();
+        if (e.getSource() != frame.getjTextField_pesquisa()) {
+            habilitarComponentesNovo();
+        }
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            btnPesquisarAction();
+        }
     }
 
     @Override

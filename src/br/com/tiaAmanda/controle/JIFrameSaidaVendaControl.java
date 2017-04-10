@@ -81,6 +81,7 @@ public class JIFrameSaidaVendaControl extends Control implements ActionListener,
         frame.addInternalFrameListener(this);
         lsm.addListSelectionListener(this);
         frame.getjButton_pesquisar().addActionListener(this);
+        frame.getjTextField_pesquisa().addKeyListener(this);
     }
 
     public void btnNovoAction() {
@@ -142,7 +143,7 @@ public class JIFrameSaidaVendaControl extends Control implements ActionListener,
         frame.getjTable_vendas().clearSelection();
         habilitarComponentesExcluir();
     }
-    
+
     private void btnPesquisarAction() {
         try {
             if (frame.getjTable_vendas().getRowCount() > 0) {
@@ -293,17 +294,22 @@ public class JIFrameSaidaVendaControl extends Control implements ActionListener,
 
     @Override
     public void keyTyped(KeyEvent e) {
-        habilitarComponentesNovo();
-        if (e.getSource() == frame.getjTextField_valor()) {
-            String caracteresPermitidos = "0987654321.";
-            if (!caracteresPermitidos.contains(e.getKeyChar() + "") || false) {
-                e.consume();
+        if (e.getSource() != frame.getjTextField_pesquisa()) {
+            habilitarComponentesNovo();
+            if (e.getSource() == frame.getjTextField_valor()) {
+                String caracteresPermitidos = "0987654321.";
+                if (!caracteresPermitidos.contains(e.getKeyChar() + "") || false) {
+                    e.consume();
+                }
             }
         }
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            btnPesquisarAction();
+        }
     }
 
     @Override
