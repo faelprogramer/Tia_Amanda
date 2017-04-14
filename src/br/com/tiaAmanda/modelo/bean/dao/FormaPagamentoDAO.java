@@ -111,12 +111,12 @@ public class FormaPagamentoDAO extends DAO<FormaPagamento>{
     }
 
     @Override
-    public FormaPagamento getObject(Connection conn, FormaPagamento pf) throws SQLException {
+    public FormaPagamento getObject(Connection conn, FormaPagamento fp) throws SQLException {
         sql = "select cd_forma_pagamento,ds_forma_pagamento,ie_situacao "
                 + "from forma_pagamento where cd_forma_pagamento=?";
         try {
             pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, pf.getCd_forma_pagamento());
+            pstmt.setInt(1, fp.getCd_forma_pagamento());
             rs = pstmt.executeQuery();
             if (rs.next()) {
                 return InstantObjectFromResultSet();
