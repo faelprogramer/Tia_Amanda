@@ -38,11 +38,12 @@ public class PessoaFisica {
     }
 
     public String getDs_telefone() {
-        return ds_telefone;
+        //return removerMascaraTelefone(ds_telefone);
+        return removerMascaraTelefone(ds_telefone);
     }
 
     public void setDs_telefone(String ds_telefone) {
-        ds_telefone = removerMascaraTelefone(ds_telefone);
+        //ds_telefone = removerMascaraTelefone(ds_telefone);
         this.ds_telefone = ds_telefone;
     }
 

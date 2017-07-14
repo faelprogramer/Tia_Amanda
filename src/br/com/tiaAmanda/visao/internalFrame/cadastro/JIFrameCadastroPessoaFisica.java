@@ -1,6 +1,9 @@
 package br.com.tiaAmanda.visao.internalFrame.cadastro;
 
 import br.com.tiaAmanda.controle.JIFrameCadastroPessoaFisicaControl;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
@@ -8,6 +11,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
 
 public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
 
@@ -23,6 +28,7 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
         jTable_pessoas.getTableHeader().setReorderingAllowed(false);
         control = new JIFrameCadastroPessoaFisicaControl(this);
         setTamanhoColunas();
+        setFormatoData();
     }
 
     private void desabilitarComponentes() {
@@ -434,6 +440,14 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
         jTable_pessoas.getColumnModel().getColumn(i++).setPreferredWidth(200);
         jTable_pessoas.getColumnModel().getColumn(i++).setPreferredWidth(200);
         jTable_pessoas.getColumnModel().getColumn(i++).setPreferredWidth(500);
+    }
+
+    private void setFormatoData() {
+        try {
+            jFormattedTextField_dsTelefone.setFormatterFactory(new DefaultFormatterFactory(new MaskFormatter("(##) #####-####")));
+        } catch (ParseException ex) {
+            
+        }
     }
 
 }
