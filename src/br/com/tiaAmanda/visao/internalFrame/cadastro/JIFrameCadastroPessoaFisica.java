@@ -2,8 +2,6 @@ package br.com.tiaAmanda.visao.internalFrame.cadastro;
 
 import br.com.tiaAmanda.controle.JIFrameCadastroPessoaFisicaControl;
 import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;

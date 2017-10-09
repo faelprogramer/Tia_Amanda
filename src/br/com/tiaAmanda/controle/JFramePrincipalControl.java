@@ -5,6 +5,7 @@ import br.com.tiaAmanda.visao.internalFrame.cadastro.JIFrameCadastroPessoaFisica
 import br.com.tiaAmanda.visao.internalFrame.cadastro.JIFrameCadastroProduto;
 import br.com.tiaAmanda.visao.internalFrame.entrada.JInternalFrameEntradaCompra;
 import br.com.tiaAmanda.visao.dialog.JDialogAjudaSobre;
+import br.com.tiaAmanda.visao.internalFrame.relatorios.JInternalFrameRelatoriosVendas;
 import br.com.tiaAmanda.visao.internalFrame.saida.JInternalFrameSaidaVenda;
 import java.awt.event.ActionEvent;
 import javax.swing.JInternalFrame;
@@ -18,6 +19,7 @@ public class JFramePrincipalControl {
     private JIFrameCadastroProduto cadastroProduto;
     private JInternalFrameEntradaCompra entradaCompra;
     private JInternalFrameSaidaVenda saidaVenda;
+    private JInternalFrameRelatoriosVendas relatoriosVendas;
 
     private JIFrameCadastroPessoaFisica getCadastroPessoaFisica() {
         if (cadastroPessoaFisica == null) {
@@ -54,6 +56,18 @@ public class JFramePrincipalControl {
         }
         return saidaVenda;
     }
+    
+    private JInternalFrameRelatoriosVendas getRelatoriosVendas() {
+        if (relatoriosVendas == null) {
+            relatoriosVendas = new JInternalFrameRelatoriosVendas();
+            relatoriosVendas.setSize(relatoriosVendas.getWidth(), framePrincipal.getDecoratedDesktopPane().getHeight());
+            int x = framePrincipal.getDecoratedDesktopPane().getWidth();
+            int y = framePrincipal.getDecoratedDesktopPane().getHeight();
+            relatoriosVendas.setLocation((x-relatoriosVendas.getWidth())/2, (y - relatoriosVendas.getHeight())/2);
+        }
+        return relatoriosVendas;
+    }
+    
 
     public JFramePrincipalControl(JFramePrincipal jFramePrincipal) {
         this.framePrincipal = jFramePrincipal;
@@ -101,6 +115,12 @@ public class JFramePrincipalControl {
             }
              */
             iFrame.setVisible(true);
+        }
+    }
+
+    public void relatorios_vendas(ActionEvent e) {
+        if (e.getSource() == framePrincipal.getjMenuItem_relatorios_vendas()) {
+            addIFrame(e, getRelatoriosVendas(), framePrincipal.getjMenuItem_relatorios_vendas());
         }
     }
 

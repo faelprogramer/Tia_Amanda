@@ -1,7 +1,6 @@
 package br.com.tiaAmanda.visao.internalFrame.saida;
 
 import br.com.tiaAmanda.controle.JIFrameSaidaVendaControl;
-import br.com.tiaAmanda.modelo.gui.JNumberFormatField;
 import br.com.tiaAmanda.visao.internalFrame.cadastro.JInternalFramePattern;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -274,9 +273,7 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
             jPanel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_principalLayout.createSequentialGroup()
                 .addGroup(jPanel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_principalLayout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

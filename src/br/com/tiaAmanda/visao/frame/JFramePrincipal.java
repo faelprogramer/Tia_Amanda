@@ -37,6 +37,7 @@ public class JFramePrincipal extends JFrame implements ActionListener {
         jMenuItem_entrada_compra.addActionListener(this);
         jMenuItem_saida_venda.addActionListener(this);
         jMenuItem_ajuda_sobre.addActionListener(this);
+        jMenuItem_vendas.addActionListener(this);
     }
     
     private void setCursorPadrao() {
@@ -45,6 +46,7 @@ public class JFramePrincipal extends JFrame implements ActionListener {
         jMenu_cadastro.setCursor(cursorPadrao);
         jMenu_entrada.setCursor(cursorPadrao);
         jMenu_saida.setCursor(cursorPadrao);
+        jMenu_relatorios.setCursor(cursorPadrao);
 
         jMenuItem_ajuda_sobre.setCursor(cursorPadrao);
         jMenuItem_cadastro_pessoaFisica.setCursor(cursorPadrao);
@@ -52,6 +54,7 @@ public class JFramePrincipal extends JFrame implements ActionListener {
         jMenuItem_entrada_compra.setCursor(cursorPadrao);
         jMenuItem_saida_venda.setCursor(cursorPadrao);
         jMenuItem_arquivo_sair.setCursor(cursorPadrao);
+        jMenuItem_vendas.setCursor(cursorPadrao);
     }
 
     //<editor-fold defaultstate="collapsed" desc=" Generated Code ">
@@ -69,6 +72,8 @@ public class JFramePrincipal extends JFrame implements ActionListener {
         jMenuItem_entrada_compra = new javax.swing.JMenuItem();
         jMenu_saida = new javax.swing.JMenu();
         jMenuItem_saida_venda = new javax.swing.JMenuItem();
+        jMenu_relatorios = new javax.swing.JMenu();
+        jMenuItem_vendas = new javax.swing.JMenuItem();
         jMenu_ajuda = new javax.swing.JMenu();
         jMenuItem_ajuda_sobre = new javax.swing.JMenuItem();
 
@@ -103,6 +108,13 @@ public class JFramePrincipal extends JFrame implements ActionListener {
 
         jMenuBar_principal.add(jMenu_saida);
 
+        jMenu_relatorios.setText("Relatórios");
+
+        jMenuItem_vendas.setText("Vendas");
+        jMenu_relatorios.add(jMenuItem_vendas);
+
+        jMenuBar_principal.add(jMenu_relatorios);
+
         jMenu_ajuda.setText("Ajuda");
 
         jMenuItem_ajuda_sobre.setText("Sobre");
@@ -128,10 +140,12 @@ public class JFramePrincipal extends JFrame implements ActionListener {
     private javax.swing.JMenuItem jMenuItem_cadastro_produto;
     private javax.swing.JMenuItem jMenuItem_entrada_compra;
     private javax.swing.JMenuItem jMenuItem_saida_venda;
+    private javax.swing.JMenuItem jMenuItem_vendas;
     private javax.swing.JMenu jMenu_ajuda;
     private javax.swing.JMenu jMenu_arquivo;
     private javax.swing.JMenu jMenu_cadastro;
     private javax.swing.JMenu jMenu_entrada;
+    private javax.swing.JMenu jMenu_relatorios;
     private javax.swing.JMenu jMenu_saida;
     // End of variables declaration//GEN-END:variables
     //</editor-fold>
@@ -164,6 +178,10 @@ public class JFramePrincipal extends JFrame implements ActionListener {
         return jMenuItem_arquivo_sair;
     }
 
+    public JMenuItem getjMenuItem_relatorios_vendas() {
+        return jMenuItem_vendas;
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         control.arquivo_sair(e);
@@ -171,6 +189,7 @@ public class JFramePrincipal extends JFrame implements ActionListener {
         control.cadastro_produto(e);
         control.entrada_compra(e);
         control.saida_venda(e);
+        control.relatorios_vendas(e);
         control.ajuda_sobre(e);
     }
 
