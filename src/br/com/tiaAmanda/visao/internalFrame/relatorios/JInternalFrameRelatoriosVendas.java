@@ -12,6 +12,7 @@ public class JInternalFrameRelatoriosVendas extends JInternalFramePattern {
         initComponents();
         control = new JInternalFrameRelatoriosVendasControl(this);
         jTextArea_vendas.setEditable(false);
+        
     }
 
     @SuppressWarnings("unchecked")

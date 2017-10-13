@@ -18,7 +18,7 @@ public class JInternalFrameRelatoriosVendasControl extends Control implements In
         frame = jIFrame;
         connectionFactory = new PostgresConnectionFactory();
         dao = new RelatoriosDAO();
-        atualizar();
+        frame.addInternalFrameListener(this);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class JInternalFrameRelatoriosVendasControl extends Control implements In
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void atualizar() {
+    public void atualizar() {
         try {
             beginTransaction();
             frame.getjTextArea_vendas().setText(dao.getResult(connection));
@@ -36,7 +36,7 @@ public class JInternalFrameRelatoriosVendasControl extends Control implements In
                     "Erro ao consultar vendas", JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    
     @Override
     public void internalFrameOpened(InternalFrameEvent e) {
         atualizar();
