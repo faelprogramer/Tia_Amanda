@@ -39,7 +39,7 @@ public class JInternalFrameRelatoriosVendasControl extends Control implements In
 
     @Override
     public void internalFrameOpened(InternalFrameEvent e) {
-        
+        atualizar();
     }
 
     @Override
@@ -59,7 +59,7 @@ public class JInternalFrameRelatoriosVendasControl extends Control implements In
 
     @Override
     public void internalFrameDeiconified(InternalFrameEvent e) {
-        
+        atualizar();
     }
 
     @Override
