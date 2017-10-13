@@ -6,8 +6,10 @@ import br.com.tiaAmanda.modelo.exception.CamposObrigatoriosNaoPreenchidosExcepti
 import br.com.tiaAmanda.visao.internalFrame.relatorios.JInternalFrameRelatoriosVendas;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.event.InternalFrameEvent;
+import javax.swing.event.InternalFrameListener;
 
-public class JInternalFrameRelatoriosVendasControl extends Control {
+public class JInternalFrameRelatoriosVendasControl extends Control implements InternalFrameListener {
 
     private JInternalFrameRelatoriosVendas frame;
     private final RelatoriosDAO dao;
@@ -17,7 +19,6 @@ public class JInternalFrameRelatoriosVendasControl extends Control {
         connectionFactory = new PostgresConnectionFactory();
         dao = new RelatoriosDAO();
         atualizar();
-        
     }
 
     @Override
@@ -34,6 +35,41 @@ public class JInternalFrameRelatoriosVendasControl extends Control {
             JOptionPane.showMessageDialog(frame, ex.getMessage(),
                     "Erro ao consultar vendas", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    @Override
+    public void internalFrameOpened(InternalFrameEvent e) {
+        
+    }
+
+    @Override
+    public void internalFrameClosing(InternalFrameEvent e) {
+        
+    }
+
+    @Override
+    public void internalFrameClosed(InternalFrameEvent e) {
+        
+    }
+
+    @Override
+    public void internalFrameIconified(InternalFrameEvent e) {
+        
+    }
+
+    @Override
+    public void internalFrameDeiconified(InternalFrameEvent e) {
+        
+    }
+
+    @Override
+    public void internalFrameActivated(InternalFrameEvent e) {
+        atualizar();
+    }
+
+    @Override
+    public void internalFrameDeactivated(InternalFrameEvent e) {
+        
     }
     
 }
