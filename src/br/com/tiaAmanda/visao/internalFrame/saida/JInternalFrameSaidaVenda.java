@@ -25,6 +25,7 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
         setTamanhoColunas();
     }
 
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -309,7 +310,9 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //</editor-fold>
+    
+    // <editor-fold defaultstate="collapsed" desc="Variáveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_desfazer;
     private javax.swing.JButton jButton_excluir;
@@ -342,7 +345,8 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
     private javax.swing.JToolBar jToolBar_botoes;
     private javax.swing.JLabel jlbl_cdBarras;
     // End of variables declaration//GEN-END:variables
-
+    //</editor-fold>
+    
     public JButton getjButton_desfazer() {
         return jButton_desfazer;
     }

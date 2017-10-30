@@ -1,18 +1,32 @@
 package br.com.tiaAmanda.visao.internalFrame.cadastro;
 
+import br.com.tiaAmanda.controle.JIFrameCadastroProdutoControl;
+import br.com.tiaAmanda.modelo.util.JMoneyField;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
 public class JIFrameCadastroProduto extends JInternalFramePattern {
 
+    private JIFrameCadastroProdutoControl control;
+    
     public JIFrameCadastroProduto() {
         initComponents();
+        setTitle("Cadastro de produtos");
+        desabilitarComponentes();
+        adicionarCursorComponentes();
+        jScrollPane_produtos.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jTable_produtos.getTableHeader().setReorderingAllowed(false);
+        control = new JIFrameCadastroProdutoControl(this);
+        setTamanhoColunas();
+
     }
 
+    //<editor-fold defaultstate="collapsed" desc="Generated Code">
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -21,9 +35,9 @@ public class JIFrameCadastroProduto extends JInternalFramePattern {
         jPanel2 = new javax.swing.JPanel();
         jToolBar_botoes = new javax.swing.JToolBar();
         jButton_novo = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButton_salvar = new javax.swing.JButton();
+        jButton_desfazer = new javax.swing.JButton();
+        jButton_excluir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane_produtos = new javax.swing.JScrollPane();
         jTable_produtos = new javax.swing.JTable();
@@ -37,6 +51,10 @@ public class JIFrameCadastroProduto extends JInternalFramePattern {
         jLabel3 = new javax.swing.JLabel();
         jTextField_cdBarras = new javax.swing.JTextField();
         jCheckBox_situacao = new javax.swing.JCheckBox();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jFormattedTextField_vl_avista = new JMoneyField();
+        jFormattedTextField_vl_aprazo = new JMoneyField();
 
         jPanel_principal.setLayout(new java.awt.BorderLayout());
 
@@ -51,31 +69,39 @@ public class JIFrameCadastroProduto extends JInternalFramePattern {
         jButton_novo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar_botoes.add(jButton_novo);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/tiaAmanda/modelo/resources/img/jButton/salvar-64px.png"))); // NOI18N
-        jButton1.setText("Salvar");
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar_botoes.add(jButton1);
+        jButton_salvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/tiaAmanda/modelo/resources/img/jButton/salvar-64px.png"))); // NOI18N
+        jButton_salvar.setText("Salvar");
+        jButton_salvar.setFocusable(false);
+        jButton_salvar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton_salvar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar_botoes.add(jButton_salvar);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/tiaAmanda/modelo/resources/img/jButton/desfazer-64px.png"))); // NOI18N
-        jButton2.setText("Desfazer");
-        jButton2.setFocusable(false);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar_botoes.add(jButton2);
+        jButton_desfazer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/tiaAmanda/modelo/resources/img/jButton/desfazer-64px.png"))); // NOI18N
+        jButton_desfazer.setText("Desfazer");
+        jButton_desfazer.setFocusable(false);
+        jButton_desfazer.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton_desfazer.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar_botoes.add(jButton_desfazer);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/tiaAmanda/modelo/resources/img/jButton/excluir-64px.png"))); // NOI18N
-        jButton3.setText("Excluir");
-        jButton3.setFocusable(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar_botoes.add(jButton3);
+        jButton_excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/tiaAmanda/modelo/resources/img/jButton/excluir-64px.png"))); // NOI18N
+        jButton_excluir.setText("Excluir");
+        jButton_excluir.setFocusable(false);
+        jButton_excluir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton_excluir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar_botoes.add(jButton_excluir);
 
         jPanel2.add(jToolBar_botoes, java.awt.BorderLayout.CENTER);
 
         jPanel_principal.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
+        jTable_produtos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
         jScrollPane_produtos.setViewportView(jTable_produtos);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -84,30 +110,34 @@ public class JIFrameCadastroProduto extends JInternalFramePattern {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane_produtos, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
+                .addComponent(jScrollPane_produtos, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane_produtos, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane_produtos, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         jPanel_principal.add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
-        jlbl_produto.setText("Nome");
+        jlbl_produto.setText("CD Produto");
 
         jComboBox_unidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel1.setText("Unidade");
 
-        jLabel2.setText("Produto");
+        jLabel2.setText("Descrição");
 
         jLabel3.setText("CD Barras");
 
         jCheckBox_situacao.setText("Ativo");
+
+        jLabel4.setText("Vl a vista");
+
+        jLabel5.setText("Vl a Prazo");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -118,20 +148,26 @@ public class JIFrameCadastroProduto extends JInternalFramePattern {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField_cdBarras, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField_cd_produto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                            .addComponent(jlbl_produto, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2)
-                            .addComponent(jTextField_ds_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                            .addComponent(jCheckBox_situacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jTextField_cdBarras)
+                            .addComponent(jTextField_cd_produto, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(jlbl_produto)
+                            .addComponent(jLabel4)
+                            .addComponent(jFormattedTextField_vl_avista))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jComboBox_unidade, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                            .addComponent(jLabel5)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jFormattedTextField_vl_aprazo, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField_ds_produto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                    .addComponent(jCheckBox_situacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jComboBox_unidade, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,7 +188,15 @@ public class JIFrameCadastroProduto extends JInternalFramePattern {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField_cdBarras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckBox_situacao))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jFormattedTextField_vl_avista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFormattedTextField_vl_aprazo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         jPanel_principal.add(jPanel3, java.awt.BorderLayout.CENTER);
@@ -161,18 +205,23 @@ public class JIFrameCadastroProduto extends JInternalFramePattern {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    //</editor-fold>
 
-
+    //<editor-fold defaultstate="collapsed" desc="Variáveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton_desfazer;
+    private javax.swing.JButton jButton_excluir;
     private javax.swing.JButton jButton_novo;
+    private javax.swing.JButton jButton_salvar;
     private javax.swing.JCheckBox jCheckBox_situacao;
     private javax.swing.JComboBox<String> jComboBox_unidade;
+    private javax.swing.JFormattedTextField jFormattedTextField_vl_aprazo;
+    private javax.swing.JFormattedTextField jFormattedTextField_vl_avista;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -185,21 +234,59 @@ public class JIFrameCadastroProduto extends JInternalFramePattern {
     private javax.swing.JToolBar jToolBar_botoes;
     private javax.swing.JLabel jlbl_produto;
     // End of variables declaration//GEN-END:variables
+    //</editor-fold>
 
-    public JButton getjButton1() {
-        return jButton1;
+    private void desabilitarComponentes() {
+        jTextField_cdBarras.setEnabled(false);
+        jTextField_cd_produto.setEnabled(false);
+        jTextField_ds_produto.setEnabled(false);
+        jFormattedTextField_vl_aprazo.setEnabled(false);
+        jFormattedTextField_vl_avista.setEnabled(false);
+        jComboBox_unidade.setEnabled(false);
+        jCheckBox_situacao.setEnabled(false);
+        jButton_salvar.setEnabled(false);
+        jButton_desfazer.setEnabled(false);
+        jButton_excluir.setEnabled(false);
     }
 
-    public JButton getjButton2() {
-        return jButton2;
+    private void adicionarCursorComponentes() {
+        jButton_novo.setCursor(handCursor);
+        jButton_salvar.setCursor(handCursor);
+        jButton_desfazer.setCursor(handCursor);
+        jButton_excluir.setCursor(handCursor);
+        jTable_produtos.setCursor(handCursor);
     }
 
-    public JButton getjButton3() {
-        return jButton3;
+    private void setTamanhoColunas() {
+        //String[] colunas = ((TableModelPessoaFisica)jTable_pessoas.getModel()).getColunas();
+        int i = 0;
+        /*
+        jTable_pessoas.getColumnModel().getColumn(i++).setPreferredWidth(50);
+        jTable_pessoas.getColumnModel().getColumn(i++).setPreferredWidth(200);
+        jTable_pessoas.getColumnModel().getColumn(i++).setPreferredWidth(110);
+        jTable_pessoas.getColumnModel().getColumn(i++).setPreferredWidth(70);
+        jTable_pessoas.getColumnModel().getColumn(i++).setPreferredWidth(200);
+        jTable_pessoas.getColumnModel().getColumn(i++).setPreferredWidth(70);
+        jTable_pessoas.getColumnModel().getColumn(i++).setPreferredWidth(200);
+        jTable_pessoas.getColumnModel().getColumn(i++).setPreferredWidth(200);
+        jTable_pessoas.getColumnModel().getColumn(i++).setPreferredWidth(500);
+        */
+    }
+
+    public JButton getjButton_desfazer() {
+        return jButton_desfazer;
+    }
+
+    public JButton getjButton_excluir() {
+        return jButton_excluir;
     }
 
     public JButton getjButton_novo() {
         return jButton_novo;
+    }
+
+    public JButton getjButton_salvar() {
+        return jButton_salvar;
     }
 
     public JCheckBox getjCheckBox_situacao() {
@@ -210,8 +297,12 @@ public class JIFrameCadastroProduto extends JInternalFramePattern {
         return jComboBox_unidade;
     }
 
-    public JScrollPane getjScrollPane_produtos() {
-        return jScrollPane_produtos;
+    public JFormattedTextField getjFormattedTextField_vl_aprazo() {
+        return jFormattedTextField_vl_aprazo;
+    }
+
+    public JFormattedTextField getjFormattedTextField_vl_avista() {
+        return jFormattedTextField_vl_avista;
     }
 
     public JTable getjTable_produtos() {
