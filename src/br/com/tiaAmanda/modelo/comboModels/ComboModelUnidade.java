@@ -6,7 +6,7 @@ import java.util.List;
 import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
 
-public final class ComboModelUnidade extends AbstractListModel<Unidade> implements ComboBoxModel<Unidade> {
+public final class ComboModelUnidade<String> extends AbstractListModel<Unidade> implements ComboBoxModel<Unidade> {
 
     private List<Unidade> unidades;
     private Unidade selectedUnidade;
@@ -19,9 +19,7 @@ public final class ComboModelUnidade extends AbstractListModel<Unidade> implemen
     public ComboModelUnidade(List<Unidade> unidades) {
         this();
         this.unidades.addAll(unidades);
-        if (getSize() > 0) {
-            setSelectedItem(this.unidades.get(FIRSTINDEX));
-        }
+        setSelectedItem(this.unidades.get(FIRSTINDEX));
     }
 
     @Override

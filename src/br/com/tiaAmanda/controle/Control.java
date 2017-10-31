@@ -7,6 +7,8 @@ import java.awt.Component;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JTextField;
 
 public abstract class Control {
@@ -58,5 +60,14 @@ public abstract class Control {
     }
 
     protected abstract void validarCampos() throws CamposObrigatoriosNaoPreenchidosException;
+    
+    
+    protected String DateToString(Date dt) {
+        return new SimpleDateFormat("dd/MM/yyyy").format(dt);
+    }
+
+    protected Date StringToDate(String dt) throws ParseException {
+        return new SimpleDateFormat("dd/MM/yyyy").parse(dt);
+    }
     
 }

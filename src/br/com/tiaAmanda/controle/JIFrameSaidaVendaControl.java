@@ -27,7 +27,6 @@ import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -389,14 +388,6 @@ public class JIFrameSaidaVendaControl extends Control implements ActionListener,
         dt = DAO.getDataServidor(connection);
         endTransaction();
         return dt;
-    }
-
-    private String DateToString(Date dt) {
-        return new SimpleDateFormat("dd/MM/yyyy").format(dt);
-    }
-
-    private Date StringToDate(String dt) throws ParseException {
-        return new SimpleDateFormat("dd/MM/yyyy").parse(dt);
     }
 
     private void listFormasPagamento() {

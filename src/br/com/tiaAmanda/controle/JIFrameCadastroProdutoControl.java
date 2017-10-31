@@ -3,31 +3,40 @@ package br.com.tiaAmanda.controle;
 import br.com.tiaAmanda.modelo.bean.Produto;
 import br.com.tiaAmanda.modelo.bean.Unidade;
 import br.com.tiaAmanda.modelo.bean.dao.ProdutoDAO;
+import br.com.tiaAmanda.modelo.bean.dao.UnidadeDAO;
 import br.com.tiaAmanda.modelo.bean.dao.factory.PostgresConnectionFactory;
+import br.com.tiaAmanda.modelo.comboModels.ComboModelUnidade;
 import br.com.tiaAmanda.modelo.exception.CamposObrigatoriosNaoPreenchidosException;
 import br.com.tiaAmanda.modelo.tableModels.TableModelProduto;
 import br.com.tiaAmanda.visao.internalFrame.cadastro.JIFrameCadastroProduto;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.sql.SQLException;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.event.InternalFrameEvent;
+import javax.swing.event.InternalFrameListener;
 
-public class JIFrameCadastroProdutoControl extends Control implements KeyListener {
+public class JIFrameCadastroProdutoControl extends Control implements KeyListener, InternalFrameListener, ItemListener {
 
     private final JIFrameCadastroProduto frame;
     private final ProdutoDAO dao;
+    private final UnidadeDAO uDAO;
     private final ListSelectionModel lsm;
     private final TableModelProduto tmProduto;
     private List<Unidade> unidades;
     private List<Produto> produtos;
-    private Produto produto;
+    private Unidade unidade;
+    
 
     public JIFrameCadastroProdutoControl(JIFrameCadastroProduto jIFrame) {
         frame = jIFrame;
         connectionFactory = new PostgresConnectionFactory();
         dao = new ProdutoDAO();
+        uDAO = new UnidadeDAO();
         lsm = frame.getjTable_produtos().getSelectionModel();
         frame.getjTable_produtos().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tmProduto = new TableModelProduto();
@@ -49,6 +58,7 @@ public class JIFrameCadastroProdutoControl extends Control implements KeyListene
         frame.getjButton_desfazer().addActionListener(e -> btnDesfazer());
         frame.getjButton_excluir().addActionListener(e -> btnExcluir());
         frame.getjTextField_cdBarras().addKeyListener(this);
+        frame.getjComboBox_unidade().addItemListener(this);
     }
 
     private void btnNovo() {
@@ -144,6 +154,64 @@ public class JIFrameCadastroProdutoControl extends Control implements KeyListene
         } catch (SQLException | ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(frame, ex.getMessage(),
                     "Erro ao listar produtos", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    @Override
+    public void internalFrameOpened(InternalFrameEvent e) {
+        
+    }
+
+    @Override
+    public void internalFrameClosing(InternalFrameEvent e) {
+        
+    }
+
+    @Override
+    public void internalFrameClosed(InternalFrameEvent e) {
+        
+    }
+
+    @Override
+    public void internalFrameIconified(InternalFrameEvent e) {
+        
+    }
+
+    @Override
+    public void internalFrameDeiconified(InternalFrameEvent e) {
+        
+    }
+
+    @Override
+    public void internalFrameActivated(InternalFrameEvent e) {
+        listarAllProdutos();
+        listUnidades();
+    }
+
+    @Override
+    public void internalFrameDeactivated(InternalFrameEvent e) {
+        
+    }
+
+    private void listUnidades() {
+        try {
+            beginTransaction();
+            unidades = uDAO.getAll(connection);
+            endTransaction();
+            ComboModelUnidade u = new ComboModelUnidade(unidades);
+            frame.getjComboBox_unidade().setModel(u);
+            frame.getjComboBox_unidade().setSelectedIndex(-1);
+        } catch (SQLException | ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(frame, ex.getMessage(),
+                    "Erro ao listar unidades", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        if (e.getSource() == frame.getjComboBox_unidade() && frame.getjComboBox_unidade().getSelectedIndex() > -1) {
+            habilitarComponentesNovo();
+            unidade = unidades.get(frame.getjComboBox_unidade().getSelectedIndex());
         }
     }
 

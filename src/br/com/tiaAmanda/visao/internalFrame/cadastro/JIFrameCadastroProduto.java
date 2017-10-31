@@ -53,8 +53,8 @@ public class JIFrameCadastroProduto extends JInternalFramePattern {
         jCheckBox_situacao = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jFormattedTextField_vl_avista = new JMoneyField();
-        jFormattedTextField_vl_aprazo = new JMoneyField();
+        jFormattedTextField_vl_avista = new javax.swing.JFormattedTextField();
+        jFormattedTextField_vl_aprazo = new javax.swing.JFormattedTextField();
 
         jPanel_principal.setLayout(new java.awt.BorderLayout());
 
@@ -125,8 +125,6 @@ public class JIFrameCadastroProduto extends JInternalFramePattern {
 
         jlbl_produto.setText("CD Produto");
 
-        jComboBox_unidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel1.setText("Unidade");
 
         jLabel2.setText("Descrição");
@@ -196,7 +194,7 @@ public class JIFrameCadastroProduto extends JInternalFramePattern {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jFormattedTextField_vl_avista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFormattedTextField_vl_aprazo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel_principal.add(jPanel3, java.awt.BorderLayout.CENTER);
