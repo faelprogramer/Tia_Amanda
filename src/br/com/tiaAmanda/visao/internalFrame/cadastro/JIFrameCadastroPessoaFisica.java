@@ -23,6 +23,7 @@ public class JIFrameCadastroPessoaFisica extends JInternalFramePattern {
         adicionarCursorComponentes();
         jScrollPane_tbPessoas.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         jTable_pessoas.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        jTable_pessoas.setAutoCreateRowSorter(true); 
         jTable_pessoas.getTableHeader().setReorderingAllowed(false);
         control = new JIFrameCadastroPessoaFisicaControl(this);
         setTamanhoColunas();

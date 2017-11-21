@@ -20,6 +20,7 @@ public class JInternalFrameSaidaVenda extends JInternalFramePattern {
         adicionarCursorComponentes();
         jScrollPane_vendas.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         jTable_vendas.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        jTable_vendas.setAutoCreateRowSorter(true); 
         jTable_vendas.getTableHeader().setReorderingAllowed(false);
         control = new JIFrameSaidaVendaControl(this);
         setTamanhoColunas();
